@@ -1,5 +1,3 @@
-from colors import Col as clr
-
 
 class Player(object):
     """
@@ -84,13 +82,14 @@ class Player(object):
         self.money += change
 
     def status(self):
-        print(f'{clr.WHITE}Round #{str(self.round)}{clr.ENDC}', end='\n\n')
-        print(f"You've got {clr.GREEN}{self.work_points}{clr.ENDC} work points and {clr.RED}{self.life_points}{clr.ENDC} life points.", end='\n\n')
-        print(f'You have {clr.GREEN}${self.money}{clr.ENDC} in a bank.\n')
+        print(f'Round #{str(self.round)}', end='\n\n')
+        print(f"You've got {self.work_points} work points and {self.life_points} life points.", end='\n\n')
+        print(f'You have ${self.money} in a bank.\n')
         print('Your active events are:')
         [print(ev) for ev in self.active_events]
         print('\nYour list of options:')
         [print(f'{k}: {v}') for k, v in self.choices.items()]
+
 
     def action(self):
         self.create_options()
